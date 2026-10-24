@@ -1,0 +1,121 @@
+Project undergone as follows: Pizza Sales Data Analysis Project
+
+
+KPI:
+
+Total Revenue
+Avg Order Value
+Total Pizza Sold
+Total Orders
+Avg Pizza Per Order
+
+Questions to Answer 
+...1) Daily Trends for total Orders
+....2) Hourly Trends for Total Orders
+...3) Percentage of sales by Pizza Category
+....4) Percentage of sales by Pizza Size
+...5)Total Pizzas Sold by Pizza CATEGORY
+....6) Top 5 Best Sellers by Total Pizza
+....7) Bottom 5 worst sellers by total pizza
+
+
+
+## kPI
+1)Total Revenue
+Select
+Round(Sum(Quantity*Price,2) as Total Revenue from Pizzasales;
+1-KPI -Total revenue
+
+2) Avg Order Value
+Total Ordervalue/Ordercount
+Select Round(Sum(Quantity*Price)/count(Distinct Orderid),2) as Avg Order value;
+2-KPI 
+
+3) Total Pizza Sold
+Sum(Quantity) as total_pizza_sold from Pizza sales;3-KPI
+
+4) Total Orders
+Select Count(distinct Order_id) as total Orders from pizza sales;4-KPI
+
+5) Average pizza per order
+select 
+avg(sum(quantity/count(distinct order)id) from pizza sales;5-KPI
+
+
+
+Questions to answer:
+1) Daily Trends for total orders
+Select 
+format(date,'dddd')as dayofweek,
+count(distinctorder_id) as total Orders from pizzasales;
+
+2) Hourly trend for total orders
+Select
+datepart(Hour,time) as Hours 
+count(distinctorder_id) as total Orders from pizzasales;
+
+
+3)% of sales by pizza category
+...a) Total Revenue per category
+....b) % Sales Calculated as (a:/Totalrevenue)*100
+
+Select
+category,
+Sum(Quantity*price) as revenue,
+sum(Quantity*price)x 100 /(select sum(Quantity*price) as % sales from pizzasales 
+
+4) % of sales by Pizza size
+..a) Total Revenue per size
+....b) % Sales Calculated as (a:/Totalrevenue)*100
+
+Select
+size,
+Sum(Quantity*price) as revenue,
+sum(Quantity*price)x 100 /(select sum(Quantity*price) as % sales from pizzasales 
+
+
+5) Total Pizza sold by pizza category
+select
+Pizza_id,
+category,
+sum(Quantity) as quantitysold from pizza sales
+group by category, pizza_id,
+order by sum(Quantity) desc;
+
+
+6) Top 5 best sellers by total pizza sold
+Select Pizzaname,
+sum (Qty) as Total Pizza sold from pizzasales,
+group by pizzaname,
+Order by Total pizza sold desc limit 5;
+
+7)bottom 5 sellers by total pizza sold
+Select Pizzaname,
+sum (Qty) as Total Pizza sold from pizzasales,
+group by pizzaname,
+Order by Total pizza sold asc limit 5;
+
+
+Project Conclusion:STAR Approach for Pizza Sales Data Analysis Project
+
+Situation: I worked on a Pizza Sales Data Analysis project to understand a pizza restaurant's sales performance. The business had transactional sales data, but it needed meaningful insights into revenue, customer ordering patterns, and product performance.
+
+Task: My objective was to analyze the sales data using SQL and develop an interactive Power BI dashboard to track key performance indicators, identify sales trends, and evaluate the performance of different pizza categories and products.
+
+Action: I imported the data into SQL Server and wrote queries using JOINs, GROUP BY, aggregate functions, and subqueries. I calculated total revenue, total orders, total pizzas sold, average order value, and average pizzas per order. I also analyzed daily, monthly, and hourly order trends, sales by pizza category and size, and the top five and bottom five pizzas. Then I created an interactive Power BI dashboard with KPI cards, charts, and slicers. I also validated the dashboard calculations against the SQL results.
+
+Result: I developed an interactive dashboard that provided a clear overview of sales performance and helped identify popular pizza categories, preferred sizes, peak ordering periods, and underperforming products. The project strengthened my SQL querying, data visualization, analytical thinking, and business intelligence skills. It also demonstrated how data analysis can support better decisions about inventory, staffing, and marketing.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
